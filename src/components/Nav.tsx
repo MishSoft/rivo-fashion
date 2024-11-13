@@ -19,11 +19,11 @@ const links = [
 
 export default function Nav() {
   return (
-    <nav className="flex items-center gap-20">
+    <nav className="hidden xl:flex items-center gap-20">
       {links.map((item, index) => {
         return (
           <a
-            className="text-[16px] uppercase text-[#224F34]"
+            className="text-[16px] hover:underline transition-all duration-150 uppercase text-[#45a06a]"
             href={item.href}
             key={index}
           >
