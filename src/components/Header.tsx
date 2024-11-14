@@ -5,9 +5,11 @@ import Login from "./Login";
 import MobileNav from "./MobileNav";
 import Nav from "./Nav";
 import { motion, AnimatePresence } from "framer-motion";
+import CartBox from "./CartBox";
 
 export default function Header() {
   const [isActiveMenu, setIsActiveMenu] = useState(false);
+  const [isActiveCart, setIsActiveCart] = useState(false);
 
   const navContainer = {
     visible: {
@@ -39,7 +41,7 @@ export default function Header() {
       {/* Login Cart bar */}
       <div className="flex items-center gap-10">
         {/* Cart */}
-        <Cart />
+        <Cart setIsActiveCart={() => setIsActiveCart(true)} />
         {/* Login */}
         <Login />
         {/* Drop down navigation menu button */}
@@ -57,6 +59,22 @@ export default function Header() {
             variants={navContainer}
           >
             <MobileNav setIsActive={() => setIsActiveMenu(false)} />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Cart box animation */}
+      <AnimatePresence>
+        {isActiveCart && (
+          <motion.div
+            className="absolute top-0 right-0"
+            initial="hidden"
+            animate={isActiveCart ? "visible" : "hidden"}
+            exit="hidden"
+            variants={navContainer}
+          >
+            {/* Cart box */}
+            <CartBox setIsActiveCart={() => setIsActiveCart(false)} />
           </motion.div>
         )}
       </AnimatePresence>

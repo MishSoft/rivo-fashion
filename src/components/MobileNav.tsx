@@ -84,6 +84,13 @@ export default function MobileNav({ setIsActive }: MobileNavProps) {
           </a>
         );
       })}
+      <div className="w-full h-[2px] bg-[#45a06a]" />
+      <a
+        className="pr-[20px] pl-[20px] pt-[10px] pb-[10px] border-2 rounded-md border-[#45a06a] text-[#45a06a] font-semibold"
+        href="#"
+      >
+        Login
+      </a>
     </motion.nav>
   );
 }
